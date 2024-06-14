@@ -1,0 +1,26 @@
+{
+    "name":"new npc",
+    "namesettime":"1",
+    "innate personality":"",
+    "acquired personality":"",
+    "test":"",
+    "level":[
+        {
+            "lvl":"1",
+            "rank":"0" 
+        }
+    ],
+    "job":"",
+    "skill":{
+        
+    },
+    "money":[
+        {
+            "gss":"",
+            "coin":""
+        }
+    ],
+    "hp":"10",
+    "mana":"0",
+    "starttime":""
+}

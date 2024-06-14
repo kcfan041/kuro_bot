@@ -1,0 +1,4 @@
+需設置
+.env
+TOKEN = "your token"
+application_id = "your application_id"

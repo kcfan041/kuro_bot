@@ -1,0 +1,22 @@
+{
+    "name":"new player",
+    "namesettime":"1",
+    "level":[
+        {
+            "lvl":"1",
+            "rank":"0" 
+        }
+    ],
+    "job":"None",
+    "skill":{
+        
+    },
+    "money":[
+        {
+            "gss":"0",
+            "coin":"0"
+        }
+    ],
+    "hp":"10",
+    "starttime":""
+}
