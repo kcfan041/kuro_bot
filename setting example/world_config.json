@@ -1,0 +1,12 @@
+{
+    "start_world": {
+        "category":{},
+        "channel": {
+            "start": "",
+            "edit": ""
+        },
+        "voicechannel": {
+            "Create new world": ""
+        }
+    }
+}
