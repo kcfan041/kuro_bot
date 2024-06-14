@@ -12,3 +12,6 @@ TOKEN="your token"
 
 # application_id
 application_id="your application_id"  
+```
+## 修改`setting example`名稱
+請將資料夾名稱 `setting example` 更改為 `setting`，這樣可以保證配置文件和腳本正確連接，並避免路徑錯誤。
