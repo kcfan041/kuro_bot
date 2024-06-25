@@ -19,7 +19,7 @@ class discordsever(CE):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("discordsever 已載入")
+        print("FKBLM 已載入")
 
     @commands.Cog.listener()
     async def on_guild_channel_create(self,channel):
