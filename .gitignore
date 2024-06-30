@@ -3,3 +3,4 @@ del/
 setting/
 test/
 start.ps1
+**/__pycache__/
