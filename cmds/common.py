@@ -16,7 +16,7 @@ class common(CE):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("common 已載入")
+        print(f"{self.__class__.__name__} 已載入")
 
     @commands.command()
     async def sync(self,ctx: commands.Context):

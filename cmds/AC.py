@@ -18,7 +18,7 @@ class AC(CE):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("AC 已載入")
+        print(f"{self.__class__.__name__} 已載入")
 
     
     @app_commands.command(name= "test")

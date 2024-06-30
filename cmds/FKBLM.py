@@ -11,7 +11,7 @@ import json
 import os
 
 
-class discordsever(CE):
+class FKBLM(CE):
 
     def __init__(self,bot:commands.Bot):
         self.temporary_channels = []
@@ -19,7 +19,7 @@ class discordsever(CE):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("FKBLM 已載入")
+        print(f"{self.__class__.__name__} 已載入")
 
     @commands.Cog.listener()
     async def on_guild_channel_create(self,channel):
@@ -145,4 +145,4 @@ class discordsever(CE):
 
     # @app_commands.command(name = "end_project")
 async def setup(bot):
-    await bot.add_cog(discordsever(bot))
+    await bot.add_cog(FKBLM(bot))
