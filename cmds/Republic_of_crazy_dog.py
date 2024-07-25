@@ -31,6 +31,14 @@ class Republic_of_crazy_dog(CE):
         channel_name = "目前成員:"+str(get_member)
         await channel.edit(name=channel_name)
         await i.response.send_message(f"已修改目前成員")
+        
+    # @app_commands.command(name = "minecraft")
+    # async def getip(self,i:discord.Interaction):
+    #     if(i.user.id==449950100861747200):
+    #         ip = requests.get('https://api.ipify.org').text
+    #         await i.response.send_message(ip)
+    #     else:
+    #         await i.response.send_message(f"你不是擁有者")
     
     
     
