@@ -3,11 +3,13 @@ from discord import app_commands
 from discord.ext import commands
 from discord import Webhook
 from core.classes import CE
+import subprocess
 import requests
 import aiohttp
 import asyncio
 import time
 import json
+import sys
 import os
 
 class common(CE):
@@ -22,7 +24,40 @@ class common(CE):
     async def sync(self,ctx: commands.Context):
         fmt = await ctx.bot.tree.sync()
         await ctx.send(f"{len(fmt)}")
+        
+    @app_commands.command(name= "restart_bot")
+    async def restart_bot(self,i: discord.Interaction):
+        with open('./setting/setting.json','r',encoding='utf8') as jfile:
+            setting = json.load(jfile)
+        await i.response.defer()
+        if i.user.id == setting["owner"]:
+            message = await i.followup.send("執行重啟中..",ephemeral=False)
+            if "response" not in setting["last_ready_time"]:
+                setting["last_ready_time"]["response"] = {}
+            setting["last_ready_time"]["response"]["message_id"] = message.id
+            setting["last_ready_time"]["response"]["channel_id"] = i.channel.id
+            setting["last_ready_time"]["response"]["need_response"] = 1
+            with open('./setting/setting.json', 'w', encoding='utf8') as jfile:
+                json.dump(setting, jfile, indent=4)
+            subprocess.Popen([r"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\kmaid.bat"])
+            await self.bot.close()
+            sys.exit()
+        else:
+            await i.response.send_message("你不是擁有者..")
+            
+    @app_commands.command(name= "help",description="show all commands")
+    async def help(self,i: discord.Interaction):
+        embed = discord.Embed(title="命令列表")
 
+        for cog_name, cog in self.bot.cogs.items():
+            for command in cog.get_app_commands():
+                if command.description == "…":
+                    text = "無"
+                else:
+                    text = command.description
+                embed.add_field(name=command.name, value=f" 來自 {cog_name}\n 敘述 {text}", inline=False)
+        await i.response.send_message(embed=embed)
+        
     @app_commands.command(name= "set_owner")
     async def set_owner(self,i: discord.Interaction):
         with open('./setting/setting.json','r',encoding='utf8') as jfile:
@@ -108,7 +143,8 @@ class common(CE):
 
     @app_commands.command(name = "getip")
     async def getip(self,i:discord.Interaction):
-        if(i.user.id==449950100861747200):
+        if True:
+        # if(i.user.id==449950100861747200):
             ip = requests.get('https://api.ipify.org').text
             await i.response.send_message(ip)
         else:
